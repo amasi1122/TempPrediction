@@ -1,0 +1,169 @@
+﻿{
+  "Scenario": "Forecasting",
+  "DataSource": {
+    "Version": 3,
+    "EscapeCharacter": "\"",
+    "ReadMultiLines": false,
+    "KeepDiacritics": false,
+    "KeepPunctuations": false,
+    "AllowQuoting": false,
+    "Type": "TabularFile",
+    "FilePath": "C:\\Users\\Amasi\\source\\repos\\TempEarthPrediction\\TempEarthPrediction\\Average Temperature 1900-2023-New.csv",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "Year",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "TempC",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 0.791761460373849,
+        "RuntimeInSeconds": 0.024,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 10,
+            "SeriesLength": 655,
+            "TrainSize": 124,
+            "Horizon": 10,
+            "OutputColumnName": "TempC",
+            "InputColumnName": "TempC",
+            "ConfidenceLowerBoundColumn": "TempC_LB",
+            "ConfidenceUpperBoundColumn": "TempC_UB"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 0.791761460373849,
+        "RuntimeInSeconds": 0.017,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 10,
+            "SeriesLength": 23,
+            "TrainSize": 124,
+            "Horizon": 10,
+            "OutputColumnName": "TempC",
+            "InputColumnName": "TempC",
+            "ConfidenceLowerBoundColumn": "TempC_LB",
+            "ConfidenceUpperBoundColumn": "TempC_UB"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 0.791761460373849,
+        "RuntimeInSeconds": 0.019,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 10,
+            "SeriesLength": 18,
+            "TrainSize": 124,
+            "Horizon": 10,
+            "OutputColumnName": "TempC",
+            "InputColumnName": "TempC",
+            "ConfidenceLowerBoundColumn": "TempC_LB",
+            "ConfidenceUpperBoundColumn": "TempC_UB"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 0.791761460373849,
+        "RuntimeInSeconds": 0.015,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 10,
+            "SeriesLength": 25,
+            "TrainSize": 124,
+            "Horizon": 10,
+            "OutputColumnName": "TempC",
+            "InputColumnName": "TempC",
+            "ConfidenceLowerBoundColumn": "TempC_LB",
+            "ConfidenceUpperBoundColumn": "TempC_UB"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 0.791761460373849,
+        "RuntimeInSeconds": 0.009,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 10,
+            "SeriesLength": 64,
+            "TrainSize": 124,
+            "Horizon": 10,
+            "OutputColumnName": "TempC",
+            "InputColumnName": "TempC",
+            "ConfidenceLowerBoundColumn": "TempC_LB",
+            "ConfidenceUpperBoundColumn": "TempC_UB"
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "ForecastBySsa"
+    },
+    "Schema": "e0",
+    "MetricName": "RMSE",
+    "ModelFilePath": "C:\\Users\\Amasi\\source\\repos\\TempEarthPrediction\\TempEarthPrediction\\MLModel2.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 5,
+  "TrainingOption": {
+    "Version": 3,
+    "OptimizeMetric": "RMSE",
+    "Subsampling": false,
+    "Type": "ForecastingTrainingOption",
+    "TrainingTime": 10,
+    "UseCrossValidation": false,
+    "Horizon": 10,
+    "TimeColumn": "Year",
+    "LabelColumn": "TempC",
+    "UseDefaultIndex": false,
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "CrossValidationValidationOption",
+      "NumberOfFolds": 5
+    }
+  }
+}
